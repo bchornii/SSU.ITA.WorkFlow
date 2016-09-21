@@ -1,0 +1,87 @@
+﻿<h2 class="text-center font-signika h2-title">{{projectInformation.project.name}}</h2>
+<form name="projectInfo" role="form" class="form col-md-6 full-height">
+    <div class="form-group">
+        <h4>Name</h4>
+        <input type="text" class="form-control"  ng-model="projectInformation.project.name" required/>
+    </div>
+    <div class="form-group">
+        <h4>Status</h4>
+        <label class="radio-inline">
+            <input type="radio" 
+                   ng-model="projectInformation.project.statusId" value="1">Active
+        </label>
+        <label class="radio-inline">
+            <input type="radio" 
+                   ng-model="projectInformation.project.statusId" value="2">Complete
+        </label>
+        <label class="radio-inline">
+            <input type="radio" 
+                   ng-model="projectInformation.project.statusId" value="3">Upcoming
+        </label>
+    </div>
+    <div class="form-group">
+        <h4>Start Date</h4>
+        <div class="input-group">
+            <input type="text"
+                   class="form-control"
+                   uib-datepicker-popup="dd.MM.yyyy"
+                   show-button-bar="false"
+                   ng-model="projectInformation.project.createDate"
+                   is-open="projectInformation.startDateOpened"
+                   ng-required="true" />
+            <span class="input-group-btn">
+                <button type="button"
+                        class="btn btn-default"
+                        ng-click="projectInformation.openStartDate()">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h4>End Date</h4>
+        <div class="input-group">
+            <input type="text"
+                   class="form-control"
+                   uib-datepicker-popup="dd.MM.yyyy"
+                   show-button-bar="false"
+                   ng-model="projectInformation.project.endDate"
+                   is-open="projectInformation.endDateOpened"
+                   ng-required="true" />
+            <span class="input-group-btn">
+                <button type="button"
+                        class="btn btn-default"
+                        ng-click="projectInformation.openEndDate()">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h4>Description</h4>
+        <textarea class="form-control" 
+                  ng-model="projectInformation.project.description" rows="9"></textarea>
+        <br />
+        <button class="btn btn-primary btn-block col-md-12" 
+                ng-disabled="projectInfo.$invalid || projectInformation.isProjectSelected()"
+                ng-click="projectInformation.saveChanges()">
+            Save changes
+        </button>
+        <div class="alert alert-success alert-dismissible text-center workflow-popup-success"
+             ng-show="projectInformation.showMessage">
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            <strong>{{projectInformation.message}} </strong>
+        </div>
+    </div>
+</form>
+<div class="list-group col-md-5 col-md-offset-1">
+    <h4>Employees</h4>
+    <a href="#"
+       class="list-group-item"
+       ng-repeat="employee in projectInformation.project.employees"> {{employee.firstName + ' ' + employee.secondName}}</a>
+</div>
+<button class="btn btn-primary col-md-offset-1" 
+         ng-disabled="projectInformation.isProjectSelected()"
+        ng-click="projectInformation.openModal()">Add employee</button>

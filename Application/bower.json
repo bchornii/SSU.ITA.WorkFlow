@@ -1,0 +1,33 @@
+{
+  "name": "ASP.NET",
+  "description": "json file for our project to interact with npm",
+  "main": "index.js",
+  "authors": [
+    "LV-166.NET"
+  ],
+  "license": "ISC",
+  "moduleType": [ ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "bootstrap-css": "2.3.1",
+    "jquery": "2.1.4",
+    "jquery-easing": "*",
+    "angular": "1.4.8",
+    "angular-animate": "1.4.8",
+    "angular-local-storage": "0.2.3",
+    "angular-resource": "1.4.8",
+    "angular-route": "1.4.8",
+    "angular-ui-router": "*",
+    "fullcalendar": "~2.3.2",
+    "moment": "~2.10.3"
+  }
+}

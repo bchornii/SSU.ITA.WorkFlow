@@ -1,0 +1,41 @@
+﻿
+<div class="employee-list-size">
+    <h2 class="font-signika text-center h2-title">
+        Employees
+    </h2>
+    <form name="searchForm" class="form-group" role="search">
+        <div class="input-group">
+            <input type="text" ng-model="elist.search" class="form-control"
+                   placeholder="Enter name" />
+            <span class="input-group-addon success">
+                <span class="glyphicon glyphicon-search"></span>              
+            </span>
+        </div>
+    </form>
+    <div class="alert" ng-class="{'alert-info'  : elist.getUsersServiceIsBusy,
+                                  'alert-danger': !elist.getUsersServiceIsBusy}"
+         role="alert" ng-hide="elist.names.length">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        <span class="sr-only">Error:</span>
+        {{elist.itemListEmptyMsg}}
+    </div>
+    <div class="list-group" ng-class="{'user-list-scrollable' : elist.filteredData.length > elist.maxFilteredNames}">
+        <button type="button"
+                ng-repeat="employee in elist.filteredData track by employee.userId"
+                class="list-group-item" ng-class="{active : employee.userId === elist.getActiveItem()}"
+                ng-click="elist.setActiveItem(employee.userId)">
+            {{employee.secondName}} {{employee.firstName}}
+        </button>
+    </div>
+    <div class="alert alert-info" role="alert" ng-show="!elist.filteredData.length && elist.names.length">
+        <span class="glyphicon glyphicon-info-sign"></span>        
+        Search list empty
+    </div>
+</div>
+<button class="btn btn-primary btn-block button-top-margin" ng-click="elist.openModal()">
+    <span class="glyphicon glyphicon-plus"></span>    
+    Add new employee
+</button>
+
+
+

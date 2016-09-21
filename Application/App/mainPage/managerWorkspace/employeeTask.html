@@ -1,0 +1,83 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">{{etask.modalTitle}}</h3>
+</div>
+<div class="modal-body">
+    <form name="taskForm" role="form">
+        <div class="form-group">
+            <label>Task name</label>
+            <input name="taskName" type="text" 
+                   ng-model="etask.employeeTask.taskName"
+                   placeholder="Enter task name"
+                   class="form-control" required>
+        </div>       
+        <div class="form-group">
+            <label>Assigned to</label>
+            <div class="dropdown">
+                <button class="btn btn-default btn-block dropdown-toggle" type="button"
+                        data-toggle="dropdown" ng-click="etask.getEmployees()">
+                    <span class="pull-left">{{etask.data.employeeSecondName}} 
+                                            {{etask.data.employeeFirstName}}
+                    </span>
+                    <span class="glyphicon glyphicon-menu-down pull-right"></span>
+                </button>
+                <ul class="dropdown-menu btn-block pre-scrollable" style="max-height:325px">  
+                    <li ng-repeat="employee in etask.employees track by employee.userId"
+                        ng-click="etask.selectEmployee(employee)">
+                        <a href="#">{{employee.secondName}} {{employee.firstName}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Project name</label>
+            <div class="dropdown">
+                <button class="btn btn-default btn-block dropdown-toggle" type="button"
+                        data-toggle="dropdown" ng-click="etask.getProjects()" 
+                        ng-disabled="!etask.projectCanBeSelected">
+                    <span class="pull-left">{{etask.data.projectName}}</span>
+                    <span class="glyphicon glyphicon-menu-down pull-right"></span>
+                </button>
+                <ul class="dropdown-menu btn-block pre-scrollable" style="max-height:250px">
+                    <li ng-repeat="project in etask.projects track by project.projectId"
+                        ng-click="etask.selectProject(project)">
+                        <a href="#">{{project.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Status</label>
+            <div class="dropdown">
+                <button class="btn btn-default btn-block dropdown-toggle" type="button"
+                        data-toggle="dropdown" ng-click="etask.getStatuses()" 
+                        ng-disabled="!etask.statusCanBeSelected">
+                    <span class="pull-left">{{etask.data.statusName}}</span>
+                    <span class="glyphicon glyphicon-menu-down pull-right"></span>
+                </button>
+                <ul class="dropdown-menu btn-block pre-scrollable">
+                    <li ng-repeat="status in etask.statuses track by status.id"
+                        ng-click="etask.selectStatus(status)">
+                        <a href="#">{{status.name}}</a>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" style="resize:none" 
+                      rows="5" placeholder="Type descripton"
+                      ng-model="etask.employeeTask.description">
+            </textarea>        
+        </div>        
+    </form>    
+</div>
+<div class="modal-footer">    
+    <span class="label label-danger pull-left" ng-show="etask.sendDataError">
+        Data wasn't saved.
+    </span>
+    <button class="btn btn-warning" type="button" 
+            ng-click="etask.save()"
+            ng-disabled="!etask.checkPristine() || taskForm.$invalid">Save</button>
+    <button class="btn btn-primary" type="button" 
+            ng-click="etask.cancel()">Cancel</button>
+</div>

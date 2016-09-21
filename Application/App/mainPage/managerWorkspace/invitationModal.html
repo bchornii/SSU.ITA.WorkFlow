@@ -1,0 +1,15 @@
+﻿            <div class="modal-header">
+                <button type="button" class="close" ng-click="invitation.cancel()">&times;</button>
+                <h4 class="modal-title">Invitation Form</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="inputdefault">Enter employees Emails with " ; "</label>
+                    <textarea ng-model="invitation.invitation.EmployeesEmails" class="verify form-control" id="inputdefault" type="text" ng-pattern="invitation.emailPattern" style="height: 200px; resize: vertical"></textarea>
+                </div>
+                <label for="roleSelect">Please select the role for employees</label>
+                <select id="roleSelect" ng-init="invitation.invitation.RoleName='Employee'" ng-model="invitation.invitation.RoleName" ng-options="item for item in invitation.roles"></select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn workflow-button" data-dismiss="modal" ng-click="invitation.sendInvites()">Send</button>
+            </div>

@@ -1,0 +1,84 @@
+﻿
+<!DOCTYPE html>
+<html data-ng-app="mainPageApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href="~/app/LandingPage/resources/css/style.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="~/app/Library/angular-local-storage.js"></script>
+    <link href="~/app/mainPage/resources/css/style.css" rel="stylesheet" />
+    <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.css' type='text/css' media='all' />
+    <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js'></script>
+
+    <link href="~/app/mainPage/resources/css/toaster.css" rel="stylesheet" />
+    <script src="~/app/Library/toaster.min.js"></script>
+
+    <script src="~/app/app.constants.js"></script>
+    <script src="~/app/mainPage/mainPage.module.js"></script>
+    <script src="~/app/mainPage/filters/itemSearch.filter.js"></script>
+    <script src="~/app/mainPage/index.controller.js"></script>
+    <script src="~/app/mainPage/index.service.js"></script>
+
+    <script src="~/app/mainPage/managerWorkspace/employeeList.controller.js"></script>
+    <script src="~/app/mainPage/managerWorkspace/employeeList.service.js"></script>    
+    <script src="~/app/mainPage/ui.router.js"></script>           
+
+    
+    <script src="~/app/mainPage/managerWorkspace/employeeInfo.controller.js"></script>
+    <script src="~/app/mainPage/managerWorkspace/employeeInfo.service.js"></script>
+
+    <script src="~/app/mainPage/managerWorkspace/userInvitation.controller.js"></script>
+    <script src="~/app/mainPage/managerWorkspace/invitation.service.js"></script>
+
+    <script src="~/app/mainPage/managerWorkspace/employeeProjectList.controller.js"></script>
+    <script src="~/app/mainPage/managerWorkspace/employeeProjectList.service.js"></script>
+
+    <script src="~/app/mainPage/managerProjects/projectList.controller.js"></script>
+    <script src="~/app/mainPage/managerProjects/projectList.service.js"></script>
+    <script src="~/app/mainPage/managerProjects/projectInformation.controller.js"></script>
+    <script src="~/app/mainPage/managerProjects/projectInformation.service.js"></script>
+
+    <script src="~/app/mainPage/notification.service.js"></script>
+
+    <script src="~/app/mainPage/managerWorkspace/employeeTask.controller.js"></script>
+    <script src="~/app/mainPage/managerWorkspace/employeeTask.service.js"></script>
+
+    <script src="~/app/mainPage/managerProjects/addEmployeesModal.controller.js"></script>
+    <script src="~/app/mainPage/managerProjects/addEmployeesModal.service.js"></script>
+    
+
+</head>
+<body>
+    <div id="wrapper" class="full-height" ng-controller="IndexController as index">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav nav">
+                <li class="font-signika logo-text">WorkFlow</li>
+                <li><a ui-sref="managerWorkspace">Workspace</a></li>
+                <li><a ui-sref="managerProjects">Projects</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Statistic</a></li>
+                <li><a href="#" ng-click="index.logout()">Logout</a></li>
+            </ul>
+        </div>
+        
+        <div class="container full-height">
+                <div ui-view class="full-height"></div>
+            </div>
+        <toaster-container toaster-options = "{
+                           'time-out': 3000, 
+                           'close-button': true, 
+                           'animation-class': 'toast-bottom-right',
+                           'newestOnTop': true }">
+
+        </toaster-container>
+        </div>       
+</body>
+</html>

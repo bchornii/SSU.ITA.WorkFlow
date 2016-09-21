@@ -1,0 +1,40 @@
+﻿<div class="project-list-conteiner-size well border-radius-clear full-height">
+    <h2 class="font-signika text-center h2-title">
+        Projects
+    </h2>
+    <div class="list-height-above-button">
+        <div name="searchForm">
+            <div class="input-group search-margin">
+                <input type="text" ng-model="projectList.search" class="form-control" placeholder="Search" />
+                <span class="input-group-addon success">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="alert" ng-class="{'alert-info'  : projectList.getProjectsServiceIsBusy,
+                                      'alert-danger': !projectList.getProjectsServiceIsBusy}"
+             role="alert" ng-hide="projectList.project.length">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+            {{projectList.itemListEmptyMsg}}
+        </div>
+
+        <div class="list-group" ng-class="{'user-list-scrollable' : projectList.filteredData.length > projectList.visibleProjectsNumber}">
+            <button type="button"
+                    ng-repeat="project in projectList.filteredData track by project.projectId"
+                    class="list-group-item" ng-class="{active : project.projectId === projectList.getActiveItem()}"
+                    ng-click="projectList.setActiveItem(project.projectId)">
+                {{project.name}}
+            </button>
+        </div>
+
+        <div class="alert alert-info" role="alert" ng-show="!projectList.filteredData.length && projectList.project.length">
+            <span class="glyphicon glyphicon-info-sign"></span>
+            Search list empty
+        </div>
+    </div>
+    <button class="btn btn-primary btn-block" ng-click="projectList.addNewProject()">
+        <span class="glyphicon glyphicon-plus"></span>
+        Add new Project
+    </button>
+</div>

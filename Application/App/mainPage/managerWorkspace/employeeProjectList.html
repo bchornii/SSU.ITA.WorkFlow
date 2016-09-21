@@ -1,0 +1,51 @@
+﻿
+<h2 class="font-signika text-center h2-title padding-bottom-low">
+        Employee projects
+</h2>
+<div class="project-list">
+    <div class="accordion-scroll accordion-size">
+            <uib-accordion>
+                <uib-accordion-group panel-class="panel-info"
+                                     ng-repeat="project in plist.projects
+                                                    track by plist.getUniqueId(project.projectId)">
+                    <uib-accordion-heading>
+                        {{project.projectName}}
+                        <span class="pull-right badge">{{project.tasks.length}}</span>
+                    </uib-accordion-heading>
+
+                    <div class="list-group">
+                        <button type="button" ng-repeat="task in project.tasks track by task.taskId"
+                                ng-click="plist.editTask(task.taskId)"
+                                class="list-group-item">
+                            {{task.taskName}}
+                        </button>
+                    </div>
+                    <button class="btn btn-primary btn-block" ng-click="plist.addTask()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Add new task
+                    </button>
+                </uib-accordion-group>
+                <div class="alert alert-info"
+                     role="alert" ng-hide="plist.projects.length">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                    {{plist.itemListEmptyMsg}}
+                </div>
+            </uib-accordion>
+        </div>
+        <div class="text-center">
+            <uib-pagination direction-links="true"
+                            boundary-links="true"
+                            previous-text="&lsaquo;"
+                            next-text="&rsaquo;"
+                            first-text="&laquo;"
+                            last-text="&raquo;"
+                            class="pagination-sm"
+                            items-per-page="plist.pager.numPerPage"
+                            total-items="plist.pager.totalEntries"
+                            max-size="plist.pager.size"
+                            ng-model="plist.pager.pageNum"
+                            ng-change="plist.searchProjects()">
+            </uib-pagination>
+        </div>
+    </div>
+</div>

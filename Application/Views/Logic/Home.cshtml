@@ -1,0 +1,255 @@
+﻿
+@{
+//Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html data-ng-app="landingApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- smooth     scroll-->
+    <script src="http://ironsummitmedia.github.io/startbootstrap-scrolling-nav/js/jquery.easing.min.js"></script>
+    <script src="http://ironsummitmedia.github.io/startbootstrap-scrolling-nav/js/scrolling-nav.js"></script>
+    
+    <script src="~/app/Library/angular.js"></script>
+    <script src="~/app/Library/angular_resource.js"></script>
+    <script src="~/app/Library/angular_route.js"></script>
+    <script src="~/app/Library/angular-local-storage.js"></script>
+    <script src="~/app/Library/angular-animate.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="~/app/Library/toaster.min.js"></script>
+    <link href="~/app/landingPage/resources/css/toaster.css" rel="stylesheet" />
+
+    <!--Loading bar-->
+    <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.css' type='text/css' media='all' />
+    <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js'></script>   
+
+    <!-- App constants -->
+    <script src="~/app/app.constants.js"></script>
+
+    <!-- Load app main script -->
+    <script src="~/app/validators/validation.module.js"></script>
+    <script src="~/app/landingPage/landing.module.js"></script>
+    <script src="~/app/landingPage/landing.module.run.js"></script>
+
+    <!-- Load services -->
+    <script src="~/app/landingPage/login/interceptors.service.js"></script>
+    <script src="~/app/landingPage/login/login.service.js"></script>
+    <script src="~/app/landingPage/joinUs/join-us.service.js"></script>
+
+    <!-- Load configurations -->
+    <script src="~/app/landingPage/login/login.config.js"></script>
+
+    <!-- Load controllers -->
+    <script src="~/app/landingPage/login/login.controller.js"></script>
+    <script src="~/app/landingPage/joinUs/join-us.controller.js"></script>
+
+    <!-- Load directive -->
+    <script src="~/app/validators/email.validation.directive.js"></script>
+    <script src="~/app/validators/password.validation.directive.js"></script>
+
+    <link href="~/app/landingPage/resources/css/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container-fluid">
+
+        <!-- Main Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar navbar-default navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">WorkFlow</a>
+                        </div>
+                        <div class="navbar-collapse collapse" id="navbar-main">
+                            <ul class="nav navbar-nav">
+                                <li> <a class="page-scroll" href="#features">Features</a> </li>
+                                <li> <a class="page-scroll" href="#about"> About Us</a> </li>
+                                <li> <a class="page-scroll" href="#contact">Contact Us</a> </li>
+                            </ul>
+                            <form name="loginForm" class="navbar-form navbar-right" role="form"
+                                  ng-controller="LoginController as lg" ng-submit="lg.login()" novalidate>
+                                <div class="form-group">
+                                    <label for="username">
+                                        Have an account?
+                                    </label>
+                                    <input name="username" type="email" class="verify form-control"
+                                           email-validation
+                                           placeholder="Email" data-ng-model="lg.loginData.userName"
+                                           ng-minlength="4" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input name="password" type="password" class="verify form-control"
+                                           password-validation
+                                           placeholder="Password" data-ng-model="lg.loginData.password"
+                                           ng-minlength="6" required>
+                                </div>
+                                <input type="submit" class="btn btn-success" value="Sign In"
+                                       ng-disabled="loginForm.$invalid" />
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row top-padding-high">
+            <div class="col-md-12 section-height text-center">
+                <img src="~/app/LandingPage/resources/img/logo3.png" class="img-responsive img-rounded center-block logo-height">
+                <h1 class="slogan">A Simple Way To Manage Your Bussiness </h1>
+                <a class="btn btn-success btn-lg col-md-2 col-md-offset-5 join-button-margin page-scroll" href="#joinus">Join Us</a>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="row" id="features">
+            <div class="col-md-12 title">
+                <h2 class="text-center">Features</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 section-height top-padding-medium">
+                <div class="col-md-10 col-md-offset-1">
+                    <ul class="text-justify lead">
+                        <li>Multiple projects</li>
+                        <li>Project time management</li>
+                        <li>Track employees productivity</li>
+                        <li>Flexible task management</li>
+                        <li>Powerful reports</li>
+                        <li>Expenses control</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 section-height">
+                <img src="~/app/LandingPage/resources/img/features.png" class="img-responsive img-rounded center-block top-padding-high about-us-img">
+            </div>
+        </div>
+
+        <!-- About Us -->
+        <div class="row" id="about">
+            <div class="col-md-12 title">
+                <h2 class="text-center">About Us</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 section-height">
+                <img src="~/app/LandingPage/resources/img/about-us.png" class="img-responsive img-rounded center-block top-padding-high about-us-img">
+            </div>
+            <div class="col-md-6 section-height top-padding-medium">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="text-justify lead" id="about-us-text">
+                        We are a group of future Full Stack ASP.NET developers, but for now we're just a students at SSU IT Academy who develops their abilities to work in team and solve problems using modern web technologies.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="row" id="contact">
+            <div class="col-md-12 title">
+                <h2 class="text-center">Contact Us</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 section-height top-padding-high">
+                <img src="~/app/LandingPage/resources/img/contact-us2.png" class="img-responsive img-rounded center-block logo-height">
+                <h3 class="text-center">
+                    We're always happy to help!
+                    <br /> Feel free to send us a message anytime
+                </h3>
+            </div>
+            <div class="col-md-6 section-height text-center top-padding-low">
+                <h3> Call </h3>
+                <ins> +380 (93) 805 2850</ins>
+                <h3> Or write a letter </h3>
+                <form role="form" class="text-left">
+                    <div class="form-group col-md-8 col-md-offset-2">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" placeholder="Enter name	">
+                    </div>
+                    <div class="form-group col-md-8 col-md-offset-2">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter email">
+                    </div>
+                    <div class="form-group col-md-8 col-md-offset-2">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" rows="6" placeholder="Enter message"></textarea>
+                    </div>
+                    <div class="form-group col-md-8 col-md-offset-2">
+                        <button type="submit" class="btn btn-success btn-lg col-md-12">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Join Us -->
+        <div class="row" id="joinus">
+            <div class="col-md-12 title">
+                <h2 class="text-center">Join Us</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 well">
+                <form name="joinUsForm" role="form" ng-controller="JoinUs as jus"
+                      ng-submit="jus.signUp()" novalidate>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input name="companyName" type="text" placeholder="Enter Company Name"
+                               class="form-control" data-ng-model="jus.registration.companyName"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input name="firstName" type="text" placeholder="Enter First Name"
+                               class="form-control" data-ng-model="jus.registration.firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input name="secondName" type="text" placeholder="Enter Last Name"
+                               class="form-control" data-ng-model="jus.registration.lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input name="phone" type="tel" pattern="[+0-9]{10,20}" placeholder="Enter Phone Number"
+                               class="form-control" data-ng-model="jus.registration.phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input name="email" type="email" placeholder="Enter Email" email-validation ng-minlength="4"
+                               class="verify form-control" data-ng-model="jus.registration.email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input name="password" type="password" placeholder="Enter Password" password-validation ng-minlength="6"
+                               class="verify form-control" data-ng-model="jus.registration.password" required>
+                    </div>
+                    <input type="submit" class="btn btn-success" value="Register"
+                           ng-disabled="joinUsForm.$invalid" />
+                </form>
+            </div>
+        </div>
+        <toaster-container toaster-options="{'time-out': 3000, 'close-button':true,
+                                             'animation-class': 'toast-bottom-right'}">
+
+        </toaster-container>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <div class="modal-footer">
+            <!--Put here some social buttons in future-->
+            <div id="FooterLabel">
+                <label>SSU IT Academy <br />2015</label>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

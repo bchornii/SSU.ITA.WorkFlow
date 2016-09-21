@@ -1,0 +1,204 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600&subset=latin,cyrillic-ext);
+@import url(https://fonts.googleapis.com/css?family=Signika:700);
+
+h1, h2, h3, p, label {
+    font-family: "Open Sans";
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.875em;
+}
+
+p, p.text-justify {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3em;
+}
+label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+}
+
+#FooterLabel {
+    text-align: center
+}
+
+.title {
+	height: 80px;
+	background-color: #f8f8f8; 
+  line-height: 80px;
+  margin-bottom: 20px;
+}
+
+.header {
+  height: 80px;
+  line-height: 80px;
+  border: solid 1px lightgray;
+}
+
+.section-height {
+	height: 550px;
+}
+
+p {
+  text-indent: 30px;
+}
+.slogan {
+  color: #00517A;
+  font-family: "Sans Serif";
+}
+
+.logo-height {
+    height: 230px;
+}
+
+.about-us-img {
+    height: 430px;
+}
+
+.join-button-margin {
+    margin-top: 60px;
+}
+
+.top-padding-high {
+    padding-top: 100px;
+}
+
+.top-padding-medium {
+    padding-top: 50px;
+}
+
+.top-padding-low {
+    padding-top: 30px;
+}
+
+.form-group label {
+    padding-right: 10px;
+}
+
+.verify.ng-invalid.ng-dirty {
+    transition: 0.5s linear all;
+    background: white;
+}
+
+.verify.ng-valid.ng-dirty {
+    transition: 0.5s linear all;
+    background: white;
+}
+.verify.ng-invalid.ng-dirty {
+    background-color : pink ;
+    color: black;
+}
+
+.verify.ng-valid.ng-dirty{
+    background-color : lightgreen;
+    color : black;
+}
+
+#about-us-text {
+    padding-top: 100px;
+    font-size: 27px;
+}   
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #10374D;
+}
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 0;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+    background-color: #3A5C77;
+}
+
+.sidebar-nav > .sidebar-brand {
+   background-color: #3A5C77;
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #fff;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+}
+
+.btn-standart {
+    background-color: #1D7A66;
+    border-color: #0a4a3c;
+    color: #fff;
+}
+
+.btn-standart:hover {
+    background-color: #005A46;
+    color: #fff;
+}
+
+#admin-panel-title {
+    color: #A0D9B0;
+}
+
+#active {
+  background: rgba(255,255,255,0.2);
+}
+
+.font-signika {
+   font-family: 'Signika', sans-serif;
+}
+

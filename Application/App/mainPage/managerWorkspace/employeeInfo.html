@@ -1,0 +1,60 @@
+﻿<div class="full-height">
+    <h2 class="font-signika text-center h2-title">
+        Profile
+    </h2>
+    <form name="employeeInfoForm"
+          class="form employee-profile-size">
+       
+        <div class="form-group">
+            <label>First Name</label>
+            <input name="firstName" type="text" class="form-control"
+                   data-ng-model="einfo.employee.name" required>
+        </div>
+        <div class="form-group">
+            <label>Second Name</label>
+            <input name="secondName" type="text" class="form-control"
+                   data-ng-model="einfo.employee.surName" required>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input name="address" type="text" class="form-control"
+                   data-ng-model="einfo.employee.address" required readonly>
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input name="phone" type="text" class="form-control"
+                   data-ng-model="einfo.employee.phoneNumber" required readonly>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input name="email" type="text" class="form-control"
+                   data-ng-model="einfo.employee.email" required readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Role</label>
+
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle form-control" type="button" id="roleDropDown"
+                        data-toggle="dropdown">
+                    <span class="pull-left">
+                        {{einfo.employee.roleName}}
+                    </span>
+                    <span class="glyphicon glyphicon-menu-down pull-right"></span>
+                </button>
+                <ul class="dropdown-menu btn-block" style="max-height:325px">
+                    <li ng-repeat="role in einfo.roles" ng-click="einfo.selectRole(role)">
+                        <a href="#">{{role.roleName}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <br />
+        </div>
+        <br />
+        <button class="btn btn-primary btn-block" ng-click="einfo.updateEmployeeInfo()">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            Save Changes
+        </button>
+        </form>     
+</div>

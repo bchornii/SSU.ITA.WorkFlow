@@ -1,0 +1,31 @@
+﻿<div class="modal-header">
+    <h2>Select employees</h2>
+</div>
+
+<div class="modal-body">
+    <div name="searchForm">
+        <div class="input-group">
+            <input type="text" ng-model="addEmplModalContr.search" class="form-control" placeholder="Search" />
+            <span class="input-group-addon success">
+                <span class="glyphicon glyphicon-search"></span>
+            </span>
+        </div>
+    </div>
+
+    <div class="alert" ng-class="{'alert-info' : addEmplModalContr.isModalServiceIsBusy}"
+         role="alert" ng-hide="addEmplModalContr.filteredData.length">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        {{addEmplModalContr.itemListEmptyMsg}}
+    </div>
+
+    <div ng-repeat="employee in addEmplModalContr.filteredData">
+        <label class="checkbox-inline">
+            <input type="checkbox" class="checkbox" ng-model="employee.selected" />{{employee.firstName}} {{employee.secondName}}
+        </label>
+    </div>
+</div>
+<!--ui-grid-->
+<div class="modal-footer">
+    <button class="btn workflow-button" type="button" ng-click="addEmplModalContr.add()">Add</button>
+    <button class="btn btn-warning" type="button" ng-click="addEmplModalContr.cancel()">Cancel</button>
+</div>
